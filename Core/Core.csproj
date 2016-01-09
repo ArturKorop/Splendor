@@ -40,7 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameController.cs" />
+    <Compile Include="Common\SerializeHelper.cs" />
+    <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\CardHolderController.cs" />
+    <Compile Include="Controllers\CardRepositoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GemRepositoryController.cs" />
+    <Compile Include="Controllers\PriceController.cs" />
+    <Compile Include="Dto\CardDto.cs" />
+    <Compile Include="Dto\CardHolderDto.cs" />
+    <Compile Include="Dto\CardsRepositoryDto.cs" />
+    <Compile Include="Dto\CustomerDto.cs" />
+    <Compile Include="Dto\GameDto.cs" />
+    <Compile Include="Dto\GemCountDto.cs" />
+    <Compile Include="Dto\PlayerDto.cs" />
+    <Compile Include="Common\Gem.cs" />
+    <Compile Include="Dto\GemRepositoryDto.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Dto\PriceDto.cs" />
+    <Compile Include="Extensions\PriceExtensions.cs" />
+    <Compile Include="Interfaces\ICloneable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
