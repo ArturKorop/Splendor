@@ -1,7 +1,8 @@
 ﻿using System.Linq;
+using Core.Controllers;
 using Core.Dto;
 
-namespace Core.Controllers
+namespace Core.Entities
 {
     public static class DtoFactory
     {
@@ -18,7 +19,7 @@ namespace Core.Controllers
             return gameDto;
         }
 
-        public static PlayerDto GetPlayerDto(this PlayerController player)
+        public static PlayerDto GetPlayerDto(this Player player)
         {
             return new PlayerDto
             {
@@ -30,7 +31,7 @@ namespace Core.Controllers
             };
         }
 
-        public static CustomerDto GetCustomerDto(this CustomerController customer)
+        public static CustomerDto GetCustomerDto(this Customer customer)
         {
             return new CustomerDto
             {
@@ -39,7 +40,7 @@ namespace Core.Controllers
             };
         }
 
-        public static GemRepositoryDto GetGemRepositoryDto(this GemRepositoryController gems)
+        public static GemRepositoryDto GetGemRepositoryDto(this GemRepository gems)
         {
             return new GemRepositoryDto
             {
@@ -47,7 +48,7 @@ namespace Core.Controllers
             };
         }
 
-        public static CardHolderDto GetCardHolderDto(this CardHolderController cardHolder)
+        public static CardHolderDto GetCardHolderDto(this CardHolders cardHolder)
         {
             return new CardHolderDto
             {
@@ -56,19 +57,19 @@ namespace Core.Controllers
             };
         }
 
-        public static CardDto GetCardDto(this CardController card)
+        public static CardDto GetCardDto(this Card card)
         {
             return new CardDto
             {
                 Id = card.Id,
                 GemProduct = card.GemProduct,
                 Level = card.Level,
-                PriceDto = card.Price.GetPriceDto(),
+                Price = card.Price.GetPriceDto(),
                 Vp = card.Vp
             };
         }
 
-        public static PriceDto GetPriceDto(this PriceController price)
+        public static PriceDto GetPriceDto(this Price price)
         {
             return new PriceDto
             {
@@ -76,7 +77,7 @@ namespace Core.Controllers
             };
         }
 
-        public static CardRepositoryDto GetCardRepositoryDto(this CardRepositoryController cardRepository)
+        public static CardRepositoryDto GetCardRepositoryDto(this CardRepository cardRepository)
         {
             return new CardRepositoryDto
             {

@@ -6,7 +6,7 @@
 //{
 //    public static class PriceExtensions
 //    {
-//        public static bool IsCanBuyCard(this Price priceDto, PlayerController player)
+//        public static bool IsCanBuyCard(this Price priceDto, Player player)
 //        {
 //            var additionalGold = 0;
 //            foreach (var gem in priceDto.Gems)
@@ -24,7 +24,7 @@
 //            return player.Gems.Repository[Gem.Gold] >= additionalGold;
 //        }
 
-//        public static void BuyCard(this Price priceDto, PlayerController player)
+//        public static void BuyCard(this Price priceDto, Player player)
 //        {
 //            var additionalGold = 0;
 //            foreach (var gem in priceDto.Gems)

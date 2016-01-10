@@ -3,16 +3,16 @@ using System.Linq;
 using Core.Common;
 using Core.Dto;
 
-namespace Core.Controllers
+namespace Core.Entities
 {
-    public class GemRepositoryController
+    public class GemRepository
     {
-        public GemRepositoryController()
+        public GemRepository()
         {
             Gems = new Dictionary<Gem, int>();
         }
 
-        public GemRepositoryController(GemRepositoryDto dto)
+        public GemRepository(GemRepositoryDto dto)
         {
             Gems = dto.Repository.ToDictionary(x => x.Gem, x => x.Count);
         }

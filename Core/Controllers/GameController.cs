@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.Dto;
+using Core.Entities;
 
 namespace Core.Controllers
 {
@@ -8,26 +9,26 @@ namespace Core.Controllers
     {
         public GameController(int playerCount)
         {
-            Players = new List<PlayerController>();
-            CardHolder = new CardHolderController();
-            Gems = new GemRepositoryController();
-            Customers = new List<CustomerController>();
+            Players = new List<Player>();
+            CardHolder = new CardHolders();
+            Gems = new GemRepository();
+            Customers = new List<Customer>();
         }
 
         public GameController(GameDto dto)
         {
-            Players = dto.Players.Select(x => new PlayerController(x)).ToList();
-            CardHolder = new CardHolderController(dto.CardHolder);
-            Gems = new GemRepositoryController(dto.Gems);
-            Customers = dto.Customers.Select(x => new CustomerController(x)).ToList();
+            Players = dto.Players.Select(x => new Player(x)).ToList();
+            CardHolder = new CardHolders(dto.CardHolder);
+            Gems = new GemRepository(dto.Gems);
+            Customers = dto.Customers.Select(x => new Customer(x)).ToList();
         }
 
-        public List<PlayerController> Players { get; }
+        public List<Player> Players { get; }
 
-        public CardHolderController CardHolder { get; }
+        public CardHolders CardHolder { get; }
 
-        public GemRepositoryController Gems { get; }
+        public GemRepository Gems { get; }
 
-        public List<CustomerController> Customers { get; }
+        public List<Customer> Customers { get; }
     }
 }

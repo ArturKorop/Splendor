@@ -4,7 +4,7 @@ namespace Core.Dto
 {
     public class CardDto
     {
-        public PriceDto PriceDto { get; set; }
+        public PriceDto Price { get; set; }
 
         public Gem GemProduct { get; set; }
 

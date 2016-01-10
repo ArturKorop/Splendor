@@ -1,11 +1,11 @@
 ﻿using Core.Common;
 using Core.Dto;
 
-namespace Core.Controllers
+namespace Core.Entities
 {
-    public class CardController
+    public class Card
     {
-        public PriceController Price { get; }
+        public Price Price { get; }
 
         public Gem GemProduct { get; }
 
@@ -15,7 +15,7 @@ namespace Core.Controllers
 
         public int Id { get; }
 
-        public CardController(PriceController price, Gem product, int level, int vp, int id)
+        public Card(Price price, Gem product, int level, int vp, int id)
         {
             Price = price;
             GemProduct = product;
@@ -24,9 +24,9 @@ namespace Core.Controllers
             Id = id;
         }
 
-        public CardController(CardDto dto)
+        public Card(CardDto dto)
         {
-            Price = new PriceController(dto.PriceDto);
+            Price = new Price(dto.Price);
             GemProduct = dto.GemProduct;
             Level = dto.Level;
             Vp = dto.Vp;

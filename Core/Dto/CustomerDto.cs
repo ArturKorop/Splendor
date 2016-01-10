@@ -5,5 +5,7 @@ namespace Core.Dto
         public PriceDto Price { get; set; }
 
         public int Vp { get; set; }
+
+        public string Name { get; set; }
     }
 }

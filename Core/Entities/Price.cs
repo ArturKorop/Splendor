@@ -3,13 +3,13 @@ using System.Linq;
 using Core.Common;
 using Core.Dto;
 
-namespace Core.Controllers
+namespace Core.Entities
 {
-    public class PriceController
+    public class Price
     {
         public Dictionary<Gem, int> Gems { get; }
 
-        public PriceController(int blue, int red, int black, int green, int white)
+        public Price(int blue, int red, int black, int green, int white)
         {
             Gems = new Dictionary<Gem, int>
             {
@@ -21,7 +21,7 @@ namespace Core.Controllers
             };
         }
 
-        public PriceController(PriceDto dto)
+        public Price(PriceDto dto)
         {
             Gems = dto.Gems.ToDictionary(x => x.Gem, x => x.Count);
         }

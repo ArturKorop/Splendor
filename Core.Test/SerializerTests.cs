@@ -3,6 +3,7 @@ using System.Linq;
 using Core.Common;
 using Core.Controllers;
 using Core.Dto;
+using Core.Entities;
 using NUnit.Framework;
 
 namespace Core.Test

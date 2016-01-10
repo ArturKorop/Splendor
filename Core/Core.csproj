@@ -41,14 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\SerializeHelper.cs" />
-    <Compile Include="Controllers\CardController.cs" />
-    <Compile Include="Controllers\CardHolderController.cs" />
-    <Compile Include="Controllers\CardRepositoryController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Controllers\DtoFactory.cs" />
+    <Compile Include="Common\GameStorage.cs" />
+    <Compile Include="Entities\Card.cs" />
+    <Compile Include="Entities\CardHolders.cs" />
+    <Compile Include="Entities\CardRepository.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\DtoFactory.cs" />
     <Compile Include="Controllers\GameController.cs" />
-    <Compile Include="Controllers\GemRepositoryController.cs" />
-    <Compile Include="Controllers\PriceController.cs" />
+    <Compile Include="Entities\GemRepository.cs" />
+    <Compile Include="Entities\Price.cs" />
     <Compile Include="Dto\CardDto.cs" />
     <Compile Include="Dto\CardHolderDto.cs" />
     <Compile Include="Dto\CardRepositoryDto.cs" />
@@ -58,11 +59,15 @@
     <Compile Include="Dto\PlayerDto.cs" />
     <Compile Include="Common\Gem.cs" />
     <Compile Include="Dto\GemRepositoryDto.cs" />
-    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Dto\PriceDto.cs" />
     <Compile Include="Extensions\PriceExtensions.cs" />
-    <Compile Include="Interfaces\ICloneable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cards.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
