@@ -2,8 +2,8 @@ namespace Core.Dto
 {
     public class CardHolderDto
     {
-        public CardsRepositoryDto ActiveCards { get; set; }
+        public CardRepositoryDto ActiveCards { get; set; }
 
-        public CardsRepositoryDto InactiveCards { get; set; }
+        public CardRepositoryDto InactiveCards { get; set; }
     }
 }

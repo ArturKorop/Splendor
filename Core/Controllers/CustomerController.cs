@@ -16,7 +16,7 @@ namespace Core.Controllers
 
         public CustomerController(CustomerDto dto)
         {
-            Price = new PriceController(dto.PriceDto);
+            Price = new PriceController(dto.Price);
             Vp = dto.Vp;
         }
     }

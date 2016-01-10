@@ -45,12 +45,13 @@
     <Compile Include="Controllers\CardHolderController.cs" />
     <Compile Include="Controllers\CardRepositoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DtoFactory.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\GemRepositoryController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Dto\CardDto.cs" />
     <Compile Include="Dto\CardHolderDto.cs" />
-    <Compile Include="Dto\CardsRepositoryDto.cs" />
+    <Compile Include="Dto\CardRepositoryDto.cs" />
     <Compile Include="Dto\CustomerDto.cs" />
     <Compile Include="Dto\GameDto.cs" />
     <Compile Include="Dto\GemCountDto.cs" />

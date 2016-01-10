@@ -13,7 +13,7 @@ namespace Core.Controllers
             Cards3Level = new List<CardController>();
         }
 
-        public CardRepositoryController(CardsRepositoryDto dto)
+        public CardRepositoryController(CardRepositoryDto dto)
         {
             Cards1Level = dto.Cards1Level.Select(x => new CardController(x)).ToList();
             Cards2Level = dto.Cards2Level.Select(x => new CardController(x)).ToList();

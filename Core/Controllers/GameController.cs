@@ -6,7 +6,7 @@ namespace Core.Controllers
 {
     public class GameController
     {
-        public GameController()
+        public GameController(int playerCount)
         {
             Players = new List<PlayerController>();
             CardHolder = new CardHolderController();
