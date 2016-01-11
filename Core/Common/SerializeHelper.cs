@@ -27,5 +27,12 @@ namespace Core.Common
                 return (T)serializer.Deserialize(reader);
             }
         }
+
+        public static T DeserializeFromFile<T>(string path)
+        {
+            var source = File.ReadAllText(path);
+
+            return Deserialize<T>(source);
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Core.Common;
+﻿using System.Collections.Generic;
+using Core.Common;
+using Core.Dto;
 using NUnit.Framework;
 
 namespace Core.Test
@@ -9,9 +11,13 @@ namespace Core.Test
         [Test]
         public void GameStorage_Init_Successfull()
         {
-            var storage = new GameStorage(@"E:\git\Splendor\Core.Test\bin\Debug\Cards.xml");
+
+            var storage = SerializeHelper.DeserializeFromFile<GameStorage>(@"E:\git\Splendor\Core\Cards.xml");
 
             var test = storage.Save();
+            var price = new PriceDto {Gems = new List<GemCountDto> {new GemCountDto(Gem.Blue, 1)}};
+            var test2 = SerializeHelper.Serialize(price);
+            var priceDto = SerializeHelper.Deserialize<PriceDto>(test2);
         }
     }
 }
