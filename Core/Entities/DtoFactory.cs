@@ -48,7 +48,7 @@ namespace Core.Entities
             };
         }
 
-        public static CardHolderDto GetCardHolderDto(this CardHolders cardHolder)
+        public static CardHolderDto GetCardHolderDto(this CardHolder cardHolder)
         {
             return new CardHolderDto
             {

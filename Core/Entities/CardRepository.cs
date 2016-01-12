@@ -20,6 +20,13 @@ namespace Core.Entities
             Cards3Level = dto.Cards3Level.Select(x => new Card(x)).ToList();
         }
 
+        public CardRepository(List<Card> cards1Level, List<Card> cards2Level, List<Card> cards3Level)
+        {
+            Cards1Level = cards1Level;
+            Cards2Level = cards2Level;
+            Cards3Level = cards3Level;
+        }
+
         public List<Card> Cards1Level { get; }
         public List<Card> Cards2Level { get; }
         public List<Card> Cards3Level { get; }

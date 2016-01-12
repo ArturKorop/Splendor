@@ -2,22 +2,28 @@ using Core.Dto;
 
 namespace Core.Entities
 {
-    public class CardHolders
+    public class CardHolder
     {
         public CardRepository ActiveCards { get; } 
 
         public CardRepository InactiveCards { get; } 
        
-        public CardHolders(CardHolderDto dto)
+        public CardHolder(CardHolderDto dto)
         {
             ActiveCards = new CardRepository(dto.ActiveCards);
             InactiveCards = new CardRepository(dto.InactiveCards);
         }
 
-        public CardHolders()
+        public CardHolder()
         {
             ActiveCards = new CardRepository();
             InactiveCards = new CardRepository();
+        }
+
+        public CardHolder(CardRepository activeCards, CardRepository inactiveCards)
+        {
+            ActiveCards = activeCards;
+            InactiveCards = inactiveCards;
         }
     }
 }

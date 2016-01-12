@@ -42,8 +42,10 @@
   <ItemGroup>
     <Compile Include="Common\SerializeHelper.cs" />
     <Compile Include="Common\GameStorage.cs" />
+    <Compile Include="Controllers\GameConfig.cs" />
+    <Compile Include="Controllers\GemRepositoryFactory.cs" />
     <Compile Include="Entities\Card.cs" />
-    <Compile Include="Entities\CardHolders.cs" />
+    <Compile Include="Entities\CardHolder.cs" />
     <Compile Include="Entities\CardRepository.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\DtoFactory.cs" />
