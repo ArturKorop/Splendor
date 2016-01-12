@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Core.Dto;
 
@@ -5,80 +6,13 @@ namespace Core.Common
 {
     public class GameStorage
     {
-        public GameStorage()
+        private static readonly Lazy<GameStorage> _instance = new Lazy<GameStorage>(()=> SerializeHelper.DeserializeFromFile<GameStorage>("Cards.xml"));
+
+        private GameStorage()
         {
-            //Customers = new List<CustomerDto>
-            //{
-            //    new CustomerDto
-            //    {
-            //        Name = "Stepan",
-            //        Vp = 1,
-            //        Price = new PriceDto
-            //        {
-            //            Gems = new List<GemCountDto>
-            //            {
-            //                new GemCountDto(Gem.Black, 5)
-            //            }
-            //        }
-            //    }
-            //};
-
-            //Level1Cards = new List<CardDto>
-            //{
-            //    new CardDto
-            //    {
-            //        GemProduct = Gem.Blue,
-            //        Id = 45,
-            //        Level = 1,
-            //        Vp = 1,
-            //        Price = new PriceDto
-            //        {
-            //            Gems = new List<GemCountDto>
-            //            {
-            //                new GemCountDto(Gem.Black, 5)
-            //            }
-            //        }
-            //    }
-            //};
-
-            //Level2Cards = new List<CardDto>
-            //{
-            //    new CardDto
-            //    {
-            //        GemProduct = Gem.Blue,
-            //        Id = 45,
-            //        Level = 1,
-            //        Vp = 1,
-            //        Price = new PriceDto
-            //        {
-            //            Gems = new List<GemCountDto>
-            //            {
-            //                new GemCountDto(Gem.Black, 5)
-            //            }
-            //        }
-            //    }
-            //};
-
-            //Level3Cards = new List<CardDto>
-            //{
-            //    new CardDto
-            //    {
-            //        GemProduct = Gem.Blue,
-            //        Id = 45,
-            //        Level = 1,
-            //        Vp = 1,
-            //        Price = new PriceDto
-            //        {
-            //            Gems = new List<GemCountDto>
-            //            {
-            //                new GemCountDto(Gem.Black, 5)
-            //            }
-            //        }
-            //    }
-            //};
-
-
         }
+
+        public static GameStorage Instance => _instance.Value;
 
         public List<CustomerDto> Customers { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core.Common;
 using Core.Dto;
 using Core.Entities;
 
@@ -13,6 +14,7 @@ namespace Core.Controllers
             CardHolder = new CardHolders();
             Gems = new GemRepository();
             Customers = new List<Customer>();
+            var temp = GameStorage.Instance;
         }
 
         public GameController(GameDto dto)

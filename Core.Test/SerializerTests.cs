@@ -14,7 +14,7 @@ namespace Core.Test
         [Test]
         public void SerializeDeserialize_GameDto_Correct()
         {
-            var game = new GameController(2);
+            var game = new GameController(2) ;
             var gameDto = game.GetGameDto();
             gameDto.Gems.Repository = new List<GemCountDto> {new GemCountDto(Gem.Green, 5)};
 
