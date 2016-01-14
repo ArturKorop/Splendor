@@ -4,7 +4,7 @@ namespace Core.Dto
 {
     public class GameDto
     {
-        public List<PlayerDto> Players { get; set; }
+        public List<PlayerDto> PlayersData { get; set; }
 
         public List<CustomerDto> Customers { get; set; }
 

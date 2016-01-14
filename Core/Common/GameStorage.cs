@@ -6,7 +6,7 @@ namespace Core.Common
 {
     public class GameStorage
     {
-        private static readonly Lazy<GameStorage> _instance = new Lazy<GameStorage>(()=> SerializeHelper.DeserializeFromFile<GameStorage>("Cards.xml"));
+        private static readonly Lazy<GameStorage> _instance = new Lazy<GameStorage>(()=> SerializeHelper.DeserializeFromFile<GameStorage>(@"E:\git\Splendor\Core\Cards.xml"));
 
         private GameStorage()
         {

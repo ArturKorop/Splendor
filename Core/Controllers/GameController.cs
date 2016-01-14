@@ -1,65 +1,145 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Core.Common;
-using Core.Dto;
+using System;
 using Core.Entities;
 
 namespace Core.Controllers
 {
     public class GameController
     {
-        public GameController(int playersCount)
+        private readonly GameData _gameData;
+
+        public GameController(GameData data)
         {
-            Players = new List<Player>();
-
-            InitGems(playersCount);
-
-            InitCardHolder(GameStorage.Instance.Level1Cards,
-                GameStorage.Instance.Level2Cards,
-                GameStorage.Instance.Level3Cards);
-
-            InitCustomers(GameStorage.Instance.Customers);
+            _gameData = data;
         }
 
-        public GameController(GameDto dto)
+        public void Start()
         {
-            Players = dto.Players.Select(x => new Player(x)).ToList();
-            CardHolder = new CardHolder(dto.CardHolder);
-            Gems = new GemRepository(dto.Gems);
-            Customers = dto.Customers.Select(x => new Customer(x)).ToList();
+            while (!_gameData.IsGameFinished)
+            {
+                var player = _gameData.PlayersRoundManager.GetNext();
+
+                var playerShouldDoTurn = true;
+                while (playerShouldDoTurn)
+                {
+                    PlayerChoice result = player.Connection.DoTurn(_gameData.GetGameDto());
+
+                    ProcessPlayerTurn(result);
+
+                    playerShouldDoTurn = result.PlayerTurn != PlayerTurn.Finish;
+                }
+            }
         }
 
-        public List<Player> Players { get; private set; }
-
-        public CardHolder CardHolder { get; private set; }
-
-        public GemRepository Gems { get; private set; }
-
-        public List<Customer> Customers { get; private set; }
-
-        private void InitGems(int playersCount)
+        private void ProcessPlayerTurn(PlayerChoice result)
         {
-            Gems = GemRepositoryFactory.GetGemRepository(playersCount);
+            IProcessPlayerTurn processor;
+            switch (result.PlayerTurn)
+            {
+                case PlayerTurn.Take3DifferentGems:
+                    processor = new Take3DifferentGemsProcessor(_gameData);
+                    break;
+                case PlayerTurn.BuyCard:
+                    processor = new BuyCardProcessor(_gameData);
+                    break;
+                case PlayerTurn.Take2TheSameGems:
+                    processor = new Take2TheSameGemsProcessor(_gameData);
+                    break;
+                case PlayerTurn.BookCardAndTake1Gold:
+                    processor = new BookCardAndTake1GoldProcessor(_gameData);
+                    break;
+                case PlayerTurn.BuyCustomer:
+                    processor = new BuyCustomerProcessor(_gameData);
+                    break;
+                case PlayerTurn.Finish:
+                    processor = new FinishProcessor(_gameData);
+                    break;
+
+                default:
+                    throw new InvalidOperationException();
+            }
+
+            processor.Process(result.Parameters);
+        }
+    }
+
+    public class FinishProcessor : IProcessPlayerTurn
+    {
+        public FinishProcessor(GameData gameData)
+        {
+            throw new NotImplementedException();
         }
 
-        private void InitCustomers(List<CustomerDto> customers)
+        public void Process(object parameters)
         {
-            Customers = customers.Select(x => new Customer(x)).ToList();
+        }
+    }
+
+    public class BuyCustomerProcessor : IProcessPlayerTurn
+    {
+        public BuyCustomerProcessor(GameData gameData)
+        {
+            throw new NotImplementedException();
         }
 
-        private void InitCardHolder(List<CardDto> level1Cards, List<CardDto> level2Cards, List<CardDto> level3Cards)
+        public void Process(object parameters)
         {
-            var activeCardsRepository = new CardRepository(ConvertCardDtoListToCardList(level1Cards),
-                ConvertCardDtoListToCardList(level2Cards), ConvertCardDtoListToCardList(level3Cards));
+            throw new NotImplementedException();
+        }
+    }
 
-            var inactiveCardsRepository = new CardRepository();
-
-            CardHolder = new CardHolder(activeCardsRepository, inactiveCardsRepository);
+    public class Take2TheSameGemsProcessor : IProcessPlayerTurn
+    {
+        public Take2TheSameGemsProcessor(GameData gameData)
+        {
+            throw new NotImplementedException();
         }
 
-        private List<Card> ConvertCardDtoListToCardList(List<CardDto> dto)
+        public void Process(object parameters)
         {
-            return dto.Select(x => new Card(x)).ToList();
+            throw new NotImplementedException();
         }
+    }
+
+    public class BookCardAndTake1GoldProcessor : IProcessPlayerTurn
+    {
+        public BookCardAndTake1GoldProcessor(GameData gameData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Process(object parameters)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    internal class BuyCardProcessor : IProcessPlayerTurn
+    {
+        public BuyCardProcessor(GameData gameData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Process(object parameters)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Take3DifferentGemsProcessor : IProcessPlayerTurn
+    {
+        public Take3DifferentGemsProcessor(GameData gameData)
+        {
+        }
+
+        public void Process(object parameters)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public interface IProcessPlayerTurn
+    {
+        void Process(object parameters);
     }
 }

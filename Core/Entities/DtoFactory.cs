@@ -6,11 +6,11 @@ namespace Core.Entities
 {
     public static class DtoFactory
     {
-        public static GameDto GetGameDto(this GameController game)
+        public static GameDto GetGameDto(this GameData game)
         {
             var gameDto = new GameDto
             {
-                Players = game.Players.Select(x => x.GetPlayerDto()).ToList(),
+                PlayersData = game.Players.Select(x => x.PlayerData.GetPlayerDataDto()).ToList(),
                 Customers = game.Customers.Select(x => x.GetCustomerDto()).ToList(),
                 Gems = game.Gems.GetGemRepositoryDto(),
                 CardHolder = game.CardHolder.GetCardHolderDto()
@@ -19,15 +19,15 @@ namespace Core.Entities
             return gameDto;
         }
 
-        public static PlayerDto GetPlayerDto(this Player player)
+        public static PlayerDto GetPlayerDataDto(this PlayerData playerData)
         {
             return new PlayerDto
             {
-                Id = player.Id,
-                Gems = player.Gems.GetGemRepositoryDto(),
-                BoughtCards = player.BoughtCards.Select(x => x.GetCardDto()).ToList(),
-                BookedCards = player.BookedCards.Select(x=>x.GetCardDto()).ToList(),
-                Customers = player.Customers.Select(x=>x.GetCustomerDto()).ToList()
+                Id = playerData.Id,
+                Gems = playerData.Gems.GetGemRepositoryDto(),
+                BoughtCards = playerData.BoughtCards.Select(x => x.GetCardDto()).ToList(),
+                BookedCards = playerData.BookedCards.Select(x=>x.GetCardDto()).ToList(),
+                Customers = playerData.Customers.Select(x=>x.GetCustomerDto()).ToList()
             };
         }
 
