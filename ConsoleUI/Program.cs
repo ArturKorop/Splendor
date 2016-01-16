@@ -2,6 +2,7 @@
 using Core.Common;
 using Core.Controllers;
 using Core.Entities;
+using Core.Player;
 
 namespace ConsoleUI
 {
@@ -9,7 +10,10 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            var game = new GameData(new List<IPlayerConnection> {new DummyPlayerConnection(), new DummyPlayerConnection()});
+            var gameData = new GameData(new List<IPlayerConnection> {new DummyPlayerConnection(), new DummyPlayerConnection(), new RealPlayerConnection()});
+            var game = new GameController(gameData);
+
+            game.Start();
         }
     }
 }

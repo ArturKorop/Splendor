@@ -8,8 +8,10 @@ namespace Core.Dto
 
         public List<CustomerDto> Customers { get; set; }
 
-        public GemRepositoryDto Gems { get; set; }
+        public GemHolderDto GemHolder { get; set; }
 
         public CardHolderDto CardHolder { get; set; }
+
+        public GameRoundManagerDto GameRoundManager { get; set; }
     }
 }

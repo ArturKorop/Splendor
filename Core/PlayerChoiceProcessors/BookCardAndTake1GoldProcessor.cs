@@ -5,13 +5,13 @@ using Core.PlayerChoiceParameters;
 
 namespace Core.PlayerChoiceProcessors
 {
-    public class BookCardAndTake1GoldProcessor : PlayerActionProcessorBase<BookCardAndTake1GoldParameters>
+    public class BookCardAndTake1GoldProcessor : MainPlayerActionProcessorBase<BookCardAndTake1GoldParameters>
     {
         public BookCardAndTake1GoldProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
         {
         }
 
-        protected override bool CanDoPlayerAction(BookCardAndTake1GoldParameters parameters)
+        protected override bool CanDoMainPlayerAction(BookCardAndTake1GoldParameters parameters)
         {
             throw new NotImplementedException();
         }

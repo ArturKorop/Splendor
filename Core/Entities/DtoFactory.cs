@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Core.Controllers;
 using Core.Dto;
 
@@ -12,8 +13,9 @@ namespace Core.Entities
             {
                 PlayersData = game.Players.Select(x => x.PlayerData.GetPlayerDataDto()).ToList(),
                 Customers = game.Customers.Select(x => x.GetCustomerDto()).ToList(),
-                Gems = game.GemHolder.GetGemRepositoryDto(),
-                CardHolder = game.CardHolder.GetCardHolderDto()
+                GemHolder = game.GemHolder.GetGemRepositoryDto(),
+                CardHolder = game.CardHolder.GetCardHolderDto(),
+                GameRoundManager = game.GameRoundManager.GetGameRoundManagerDto()
             };
 
             return gameDto;
@@ -26,8 +28,8 @@ namespace Core.Entities
                 Id = playerData.Id,
                 Gems = playerData.GemHolder.GetGemRepositoryDto(),
                 BoughtCards = playerData.BoughtCards.Select(x => x.GetCardDto()).ToList(),
-                BookedCards = playerData.BookedCards.Select(x=>x.GetCardDto()).ToList(),
-                Customers = playerData.Customers.Select(x=>x.GetCustomerDto()).ToList()
+                BookedCards = playerData.BookedCards.Select(x => x.GetCardDto()).ToList(),
+                Customers = playerData.Customers.Select(x => x.GetCustomerDto()).ToList()
             };
         }
 
@@ -40,11 +42,11 @@ namespace Core.Entities
             };
         }
 
-        public static GemRepositoryDto GetGemRepositoryDto(this GemHolder gems)
+        public static GemHolderDto GetGemRepositoryDto(this GemHolder gems)
         {
-            return new GemRepositoryDto
+            return new GemHolderDto
             {
-                Repository = gems.Gems.Select(x=>new GemCountDto(x.Key, x.Value)).ToList()
+                Repository = gems.Gems.Select(x => new GemCountDto(x.Key, x.Value)).ToList()
             };
         }
 
@@ -81,9 +83,26 @@ namespace Core.Entities
         {
             return new CardRepositoryDto
             {
-                Cards1Level = cardRepository.Cards1Level.Select(x=>x.GetCardDto()).ToList(),
-                Cards2Level = cardRepository.Cards2Level.Select(x=>x.GetCardDto()).ToList(),
-                Cards3Level = cardRepository.Cards3Level.Select(x=>x.GetCardDto()).ToList(),
+                Cards1Level = cardRepository.Cards1Level.Select(x => x.GetCardDto()).ToList(),
+                Cards2Level = cardRepository.Cards2Level.Select(x => x.GetCardDto()).ToList(),
+                Cards3Level = cardRepository.Cards3Level.Select(x => x.GetCardDto()).ToList()
+            };
+        }
+
+        public static GameRoundManagerDto GetGameRoundManagerDto(this GameRoundManager gameRoundManager)
+        {
+            return new GameRoundManagerDto
+            {
+                PlayerRoundStatuses = gameRoundManager.CurrentStatus.Select(x=> x.GetPlayerRoundStatusDto()).ToList()
+            };
+        }
+
+        public static PlayerRoundStatusDto GetPlayerRoundStatusDto(this KeyValuePair<int, PlayerRoundStatus> source)
+        {
+            return new PlayerRoundStatusDto
+            {
+                Id = source.Key,
+                Status = source.Value
             };
         }
     }

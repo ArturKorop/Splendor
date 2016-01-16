@@ -2,7 +2,7 @@
 
 namespace Core.Dto
 {
-    public class GemRepositoryDto
+    public class GemHolderDto
     {
         public List<GemCountDto> Repository { get; set; }
     }

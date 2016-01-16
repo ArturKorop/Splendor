@@ -4,13 +4,13 @@ using Core.PlayerChoiceParameters;
 
 namespace Core.PlayerChoiceProcessors
 {
-    public class Take2TheSameGemsProcessor : PlayerActionProcessorBase<Take2TheSameGemsParameters>
+    public class Take2TheSameGemsProcessor : MainPlayerActionProcessorBase<Take2TheSameGemsParameters>
     {
         public Take2TheSameGemsProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
         {
         }
 
-        protected override bool CanDoPlayerAction(Take2TheSameGemsParameters parameters)
+        protected override bool CanDoMainPlayerAction(Take2TheSameGemsParameters parameters)
         {
             var selectedGemCount = GameData.GemHolder.Gems[parameters.Gem];
 

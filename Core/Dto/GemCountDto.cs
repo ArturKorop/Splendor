@@ -15,5 +15,10 @@ namespace Core.Dto
         public Gem Gem { get; set; }
 
         public int Count { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Gem}:{Count}";
+        }
     }
 }

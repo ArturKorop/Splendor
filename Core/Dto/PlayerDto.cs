@@ -6,7 +6,7 @@ namespace Core.Dto
     {
         public int Id { get; set; }
 
-        public GemRepositoryDto Gems { get; set; }
+        public GemHolderDto Gems { get; set; }
 
         public List<CardDto> BoughtCards { get; set; }
 

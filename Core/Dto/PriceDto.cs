@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -41,6 +42,17 @@ namespace Core.Dto
             {
                 AddGemCount(writer, gem);
             }
+        }
+
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
+            foreach (var gemCountDto in Gems)
+            {
+                builder.Append(gemCountDto + " ");
+            }
+
+            return builder.ToString();
         }
 
         private void AddGemCount(XmlWriter writer, Gem gem)

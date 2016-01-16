@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.Controllers;
 using Core.Dto;
 
 namespace Core.Entities
@@ -39,39 +37,6 @@ namespace Core.Entities
         public int Vp
         {
             get { return Customers.Sum(x => x.Vp) + BoughtCards.Sum(x => x.Vp); }
-        }
-    }
-
-    public class Player
-    {
-        public PlayerData PlayerData { get; private set; }
-
-        public IPlayerConnection Connection { get; private set; }
-
-        public Player(PlayerData data, IPlayerConnection connection)
-        {
-            PlayerData = data;
-            Connection = connection;
-        }
-    }
-
-    public interface IPlayerConnection
-    {
-        int Id { get; set; }
-
-        string Name { get; set; }
-
-
-        PlayerChoice DoTurn(GameDto getGameDto);
-    }
-
-    public class DummyPlayerConnection : IPlayerConnection
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public PlayerChoice DoTurn(GameDto getGameDto)
-        {
-            throw new NotImplementedException();
         }
     }
 }

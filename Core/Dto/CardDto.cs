@@ -18,5 +18,10 @@ namespace Core.Dto
 
         [XmlAttribute]
         public int Id { get; set; }
+
+        public override string ToString()
+        {
+            return $"{GemProduct}, {Price}, {Level}, {Vp}";
+        }
     }
 }

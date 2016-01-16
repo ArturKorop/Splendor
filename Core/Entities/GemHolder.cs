@@ -8,7 +8,7 @@ namespace Core.Entities
 {
     public class GemHolder
     {
-        public GemHolder(GemRepositoryDto dto)
+        public GemHolder(GemHolderDto dto)
         {
             Gems = dto.Repository.ToDictionary(x => x.Gem, x => x.Count);
         }

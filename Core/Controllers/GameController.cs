@@ -17,14 +17,14 @@ namespace Core.Controllers
             {
                 var player = _gameData.PlayersRoundManager.GetNext();
 
-                var playerDoingTurn = true;
-                while (playerDoingTurn)
+                var isPlayerDoingTurn = true;
+                while (isPlayerDoingTurn)
                 {
                     PlayerChoice result = player.Connection.DoTurn(_gameData.GetGameDto());
 
                     ProcessPlayerTurn(result, player.PlayerData);
 
-                    playerDoingTurn = result.PlayerTurn != PlayerTurn.Finish;
+                    isPlayerDoingTurn = result.PlayerTurn != PlayerTurn.Finish;
                 }
             }
         }   

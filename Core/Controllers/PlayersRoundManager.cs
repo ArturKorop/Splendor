@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using Core.Entities;
 
 namespace Core.Controllers
 {
-    public class PlayersRoundManager : RoundManager<Player>
+    public class PlayersRoundManager : RoundManager<Player.Player>
     {
-        public PlayersRoundManager(List<Player> source) : base(source)
+        public PlayersRoundManager(List<Player.Player> source) : base(source)
         {
         }
     }

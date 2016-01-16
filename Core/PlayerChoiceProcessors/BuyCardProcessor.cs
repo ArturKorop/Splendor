@@ -5,13 +5,13 @@ using Core.PlayerChoiceParameters;
 
 namespace Core.PlayerChoiceProcessors
 {
-    public class BuyCardProcessor : PlayerActionProcessorBase<BuyCardParameters>
+    public class BuyCardProcessor : MainPlayerActionProcessorBase<BuyCardParameters>
     {
         public BuyCardProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
         {
         }
 
-        protected override bool CanDoPlayerAction(BuyCardParameters parameters)
+        protected override bool CanDoMainPlayerAction(BuyCardParameters parameters)
         {
             throw new NotImplementedException();
         }
