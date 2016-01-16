@@ -1,4 +1,3 @@
-using System;
 using Core.Entities;
 
 namespace Core.Controllers
@@ -18,128 +17,22 @@ namespace Core.Controllers
             {
                 var player = _gameData.PlayersRoundManager.GetNext();
 
-                var playerShouldDoTurn = true;
-                while (playerShouldDoTurn)
+                var playerDoingTurn = true;
+                while (playerDoingTurn)
                 {
                     PlayerChoice result = player.Connection.DoTurn(_gameData.GetGameDto());
 
-                    ProcessPlayerTurn(result);
+                    ProcessPlayerTurn(result, player.PlayerData);
 
-                    playerShouldDoTurn = result.PlayerTurn != PlayerTurn.Finish;
+                    playerDoingTurn = result.PlayerTurn != PlayerTurn.Finish;
                 }
             }
-        }
+        }   
 
-        private void ProcessPlayerTurn(PlayerChoice result)
+        private void ProcessPlayerTurn(PlayerChoice playerChoice, PlayerData playerData)
         {
-            IProcessPlayerTurn processor;
-            switch (result.PlayerTurn)
-            {
-                case PlayerTurn.Take3DifferentGems:
-                    processor = new Take3DifferentGemsProcessor(_gameData);
-                    break;
-                case PlayerTurn.BuyCard:
-                    processor = new BuyCardProcessor(_gameData);
-                    break;
-                case PlayerTurn.Take2TheSameGems:
-                    processor = new Take2TheSameGemsProcessor(_gameData);
-                    break;
-                case PlayerTurn.BookCardAndTake1Gold:
-                    processor = new BookCardAndTake1GoldProcessor(_gameData);
-                    break;
-                case PlayerTurn.BuyCustomer:
-                    processor = new BuyCustomerProcessor(_gameData);
-                    break;
-                case PlayerTurn.Finish:
-                    processor = new FinishProcessor(_gameData);
-                    break;
-
-                default:
-                    throw new InvalidOperationException();
-            }
-
-            processor.Process(result.Parameters);
+            var processor = new PlayerActionProcessorManager(_gameData, playerData);
+            processor.Process(playerChoice);
         }
-    }
-
-    public class FinishProcessor : IProcessPlayerTurn
-    {
-        public FinishProcessor(GameData gameData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Process(object parameters)
-        {
-        }
-    }
-
-    public class BuyCustomerProcessor : IProcessPlayerTurn
-    {
-        public BuyCustomerProcessor(GameData gameData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Process(object parameters)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class Take2TheSameGemsProcessor : IProcessPlayerTurn
-    {
-        public Take2TheSameGemsProcessor(GameData gameData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Process(object parameters)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class BookCardAndTake1GoldProcessor : IProcessPlayerTurn
-    {
-        public BookCardAndTake1GoldProcessor(GameData gameData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Process(object parameters)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    internal class BuyCardProcessor : IProcessPlayerTurn
-    {
-        public BuyCardProcessor(GameData gameData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Process(object parameters)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class Take3DifferentGemsProcessor : IProcessPlayerTurn
-    {
-        public Take3DifferentGemsProcessor(GameData gameData)
-        {
-        }
-
-        public void Process(object parameters)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public interface IProcessPlayerTurn
-    {
-        void Process(object parameters);
     }
 }

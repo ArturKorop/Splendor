@@ -22,6 +22,8 @@ namespace Core.Controllers
                 GameStorage.Instance.Level3Cards);
 
             InitCustomers(GameStorage.Instance.Customers);
+
+            Config = new GameConfig(connections.Count);
         }
 
         private void InitPlayers(List<IPlayerConnection> connections)
@@ -43,7 +45,7 @@ namespace Core.Controllers
         {
             Players = dto.PlayersData.Select(x => new Player(new PlayerData(x), null)).ToList();
             CardHolder = new CardHolder(dto.CardHolder);
-            Gems = new GemRepository(dto.Gems);
+            GemHolder = new GemHolder(dto.Gems);
             Customers = dto.Customers.Select(x => new Customer(x)).ToList();
             PlayersRoundManager = new PlayersRoundManager(Players);
         }
@@ -52,9 +54,11 @@ namespace Core.Controllers
 
         public CardHolder CardHolder { get; private set; }
 
-        public GemRepository Gems { get; private set; }
+        public GemHolder GemHolder { get; private set; }
 
         public PlayersRoundManager PlayersRoundManager { get; private set; }
+
+        public GameConfig Config { get; private set; }
 
         public List<Customer> Customers { get; private set; }
 
@@ -62,7 +66,7 @@ namespace Core.Controllers
 
         private void InitGems(int playersCount)
         {
-            Gems = GemRepositoryFactory.GetGemRepository(playersCount);
+            GemHolder = GemRepositoryFactory.GetGemRepository(playersCount);
         }
 
         private void InitCustomers(List<CustomerDto> customers)

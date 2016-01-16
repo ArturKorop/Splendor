@@ -12,7 +12,7 @@ namespace Core.Entities
             {
                 PlayersData = game.Players.Select(x => x.PlayerData.GetPlayerDataDto()).ToList(),
                 Customers = game.Customers.Select(x => x.GetCustomerDto()).ToList(),
-                Gems = game.Gems.GetGemRepositoryDto(),
+                Gems = game.GemHolder.GetGemRepositoryDto(),
                 CardHolder = game.CardHolder.GetCardHolderDto()
             };
 
@@ -24,7 +24,7 @@ namespace Core.Entities
             return new PlayerDto
             {
                 Id = playerData.Id,
-                Gems = playerData.Gems.GetGemRepositoryDto(),
+                Gems = playerData.GemHolder.GetGemRepositoryDto(),
                 BoughtCards = playerData.BoughtCards.Select(x => x.GetCardDto()).ToList(),
                 BookedCards = playerData.BookedCards.Select(x=>x.GetCardDto()).ToList(),
                 Customers = playerData.Customers.Select(x=>x.GetCustomerDto()).ToList()
@@ -40,7 +40,7 @@ namespace Core.Entities
             };
         }
 
-        public static GemRepositoryDto GetGemRepositoryDto(this GemRepository gems)
+        public static GemRepositoryDto GetGemRepositoryDto(this GemHolder gems)
         {
             return new GemRepositoryDto
             {

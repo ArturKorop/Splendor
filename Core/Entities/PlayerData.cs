@@ -11,7 +11,7 @@ namespace Core.Entities
         public PlayerData(int id)
         {
             Id = id;
-            Gems = new GemRepository();
+            GemHolder = new GemHolder(0,0);
             BookedCards = new List<Card>();
             BoughtCards = new List<Card>();
             Customers = new List<Customer>();
@@ -20,7 +20,7 @@ namespace Core.Entities
         public PlayerData(PlayerDto dto)
         {
             Id = dto.Id;
-            Gems = new GemRepository(dto.Gems);
+            GemHolder = new GemHolder(dto.Gems);
             BoughtCards = dto.BoughtCards.Select(x => new Card(x)).ToList();
             BookedCards = dto.BookedCards.Select(x => new Card(x)).ToList();
             Customers = dto.Customers.Select(x=>new Customer(x)).ToList();
@@ -28,7 +28,7 @@ namespace Core.Entities
 
         public int Id { get; set; }
 
-        public GemRepository Gems { get; private set; }
+        public GemHolder GemHolder { get; private set; }
 
         public List<Card> BoughtCards { get; private set; } 
 
