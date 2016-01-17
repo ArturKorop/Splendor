@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using Core.Controllers;
 using Core.Dto;
+using Core.Extensions;
 
 namespace Core.Entities
 {
@@ -37,6 +39,11 @@ namespace Core.Entities
         public int Vp
         {
             get { return Customers.Sum(x => x.Vp) + BoughtCards.Sum(x => x.Vp); }
+        }
+
+        public bool CanTakeCustomer(GameData gameData)
+        {
+            return gameData.Customers.Any(x => GemHolder.CanTakeCustomer(x));
         }
     }
 }

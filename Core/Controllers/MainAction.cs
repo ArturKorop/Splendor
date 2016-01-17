@@ -1,12 +1,10 @@
 namespace Core.Controllers
 {
-    public enum PlayerTurn
+    public enum MainAction
     {
         Take3DifferentGems,
         Take2TheSameGems,
         BookCardAndTake1Gold,
         BuyCard,
-        BuyCustomer,
-        Finish
     }
 }

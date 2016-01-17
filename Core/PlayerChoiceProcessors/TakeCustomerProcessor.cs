@@ -5,20 +5,25 @@ using Core.PlayerChoiceParameters;
 
 namespace Core.PlayerChoiceProcessors
 {
-    public class TakeCustomerProcessor : PlayerActionProcessorBase<TakeCustomerParameters>
+    public class TakeCustomerProcessor : PlayerActionProcessorBase<Customer>
     {
         public TakeCustomerProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
         {
         }
 
-        protected override bool CanDoPlayerAction(TakeCustomerParameters parameters)
+        protected override bool CanDoPlayerAction(Customer parameters)
         {
             throw new NotImplementedException();
         }
 
-        protected override void DoPlayerAction(TakeCustomerParameters parameters)
+        protected override void DoPlayerAction(Customer parameters)
         {
             throw new NotImplementedException();
+        }
+
+        protected override void UpdatePlayerStatus()
+        {
+            GameData.GameRoundManager.PlayerDoneCustomerTakenAction(PlayerData.Id);
         }
     }
 }

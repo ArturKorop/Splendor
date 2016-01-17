@@ -21,11 +21,14 @@ namespace Core.PlayerChoiceProcessors
             if(CanDoPlayerAction(parameters))
             {
                 DoPlayerAction(parameters);
+                UpdatePlayerStatus();
             }
         }
 
         protected abstract bool CanDoPlayerAction(T parameters);
 
         protected abstract void DoPlayerAction(T parameters);
+
+        protected abstract void UpdatePlayerStatus();
     }
 }

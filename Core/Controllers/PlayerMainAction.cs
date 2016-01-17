@@ -1,8 +1,8 @@
 ﻿namespace Core.Controllers
 {
-    public class PlayerChoice
+    public class PlayerMainAction
     {
-        public PlayerTurn PlayerTurn { get; set; }
+        public MainAction MainAction { get; set; }
 
         public object Parameters { get; set; }
     }

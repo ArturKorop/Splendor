@@ -16,6 +16,11 @@ namespace Core.PlayerChoiceProcessors
             return !playerStatus.IsActionFinished && CanDoMainPlayerAction(parameters);
         }
 
+        protected override void UpdatePlayerStatus()
+        {
+            GameData.GameRoundManager.PlayerDoneMainAction(PlayerData.Id);
+        }
+
         protected abstract bool CanDoMainPlayerAction(T parameters);
     }
 }

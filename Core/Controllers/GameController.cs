@@ -16,23 +16,27 @@ namespace Core.Controllers
             while (!_gameData.IsGameFinished)
             {
                 var player = _gameData.PlayersRoundManager.GetNext();
+                var playerStatus = _gameData.GameRoundManager.GetPlayerRoundStatus(player.PlayerData.Id);
+                playerStatus.Clear();
 
-                var isPlayerDoingTurn = true;
-                while (isPlayerDoingTurn)
+                var processor = new PlayerActionProcessorManager(_gameData, player.PlayerData);
+
+                while (!playerStatus.IsMainActionDone)
                 {
-                    PlayerChoice result = player.Connection.DoTurn(_gameData.GetGameDto());
+                    PlayerMainAction playerAction = player.Connection.DoMainAction(_gameData.GetGameDto());
 
-                    ProcessPlayerTurn(result, player.PlayerData);
-
-                    isPlayerDoingTurn = result.PlayerTurn != PlayerTurn.Finish;
+                    processor.ProcessMainAction(playerAction);
                 }
-            }
-        }   
 
-        private void ProcessPlayerTurn(PlayerChoice playerChoice, PlayerData playerData)
-        {
-            var processor = new PlayerActionProcessorManager(_gameData, playerData);
-            processor.Process(playerChoice);
+                while (!playerStatus.IsCustomerTaken && player.PlayerData.CanTakeCustomer(_gameData))
+                {
+                    Customer selectedCustomer = player.Connection.TakeCustomer(_gameData);
+
+                    processor.ProcessTakeCustomerAction(selectedCustomer);
+                }
+
+                playerStatus.IsActionFinished = true;
+            }
         }
     }
 }

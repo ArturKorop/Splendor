@@ -47,10 +47,10 @@
     <Compile Include="Controllers\GameRoundManager.cs" />
     <Compile Include="Controllers\GemRepositoryFactory.cs" />
     <Compile Include="Controllers\PlayerActionProcessorManager.cs" />
-    <Compile Include="Controllers\PlayerChoice.cs" />
+    <Compile Include="Controllers\PlayerMainAction.cs" />
     <Compile Include="Controllers\PlayerRoundStatus.cs" />
     <Compile Include="Controllers\PlayersRoundManager.cs" />
-    <Compile Include="Controllers\PlayerTurn.cs" />
+    <Compile Include="Controllers\MainAction.cs" />
     <Compile Include="Controllers\RoundManager.cs" />
     <Compile Include="Dto\GameRoundManagerDto.cs" />
     <Compile Include="Dto\PlayerRoundStatusDto.cs" />
@@ -60,6 +60,7 @@
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\DtoFactory.cs" />
     <Compile Include="Controllers\GameData.cs" />
+    <Compile Include="Extensions\GemHolderExtensions.cs" />
     <Compile Include="PlayerChoiceProcessors\MainPlayerActionProcessorBase.cs" />
     <Compile Include="Player\DummyPlayerConnection.cs" />
     <Compile Include="Entities\GemHolder.cs" />

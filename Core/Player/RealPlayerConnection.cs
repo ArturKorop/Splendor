@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Core.Common;
 using Core.Controllers;
 using Core.Dto;
+using Core.Entities;
 using Core.PlayerChoiceParameters;
 
 namespace Core.Player
@@ -11,20 +12,25 @@ namespace Core.Player
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public PlayerChoice DoTurn(GameDto gameDto)
+        public PlayerMainAction DoMainAction(GameDto gameDto)
         {
             Print(gameDto);
 
             var result = Console.ReadKey();
 
-            return new PlayerChoice
+            return new PlayerMainAction
             {
-                PlayerTurn = PlayerTurn.Take3DifferentGems,
+                MainAction = MainAction.Take3DifferentGems,
                 Parameters = new Take3DifferentGemsParameters
                 {
                     Gems = new[] { Gem.Blue, Gem.Green, Gem.Red }
                 }
             };
+        }
+
+        public Customer TakeCustomer(GameData gameData)
+        {
+            return null;
         }
 
         private void Print(GameDto gameDto)

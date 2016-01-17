@@ -1,5 +1,6 @@
 using Core.Controllers;
 using Core.Dto;
+using Core.Entities;
 
 namespace Core.Player
 {
@@ -9,6 +10,7 @@ namespace Core.Player
 
         string Name { get; set; }
 
-        PlayerChoice DoTurn(GameDto getGameDto);
+        PlayerMainAction DoMainAction(GameDto getGameDto);
+        Customer TakeCustomer(GameData gameData);
     }
 }

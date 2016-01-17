@@ -30,5 +30,20 @@ namespace Core.Controllers
         {
             return _currentStatus[id];
         }
+
+        public void PlayerDoneMainAction(int id)
+        {
+            _currentStatus[id].IsMainActionDone = true;
+        }
+
+        public void PlayerDoneCustomerTakenAction(int id)
+        {
+            _currentStatus[id].IsCustomerTaken = true;
+        }
+
+        public void PlayerFinishedTurn(int id)
+        {
+            _currentStatus[id].IsActionFinished = true;
+        }
     }
 }
