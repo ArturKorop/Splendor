@@ -23,16 +23,7 @@ namespace Core.Dto
             Gems = new List<GemCountDto>();
             foreach (var gem in Enum.GetValues(typeof (Gem)).Cast<Gem>())
             {
-                reader.MoveToContent();
-                var gemCountStr = reader.GetAttribute(gem.ToString());
-                if (gemCountStr != null)
-                {
-                    var gemCount = int.Parse(gemCountStr);
-                    if (gemCount > 0)
-                    {
-                        Gems.Add(new GemCountDto(gem, gemCount));
-                    }
-                }
+                ReadGemCount(reader, gem);
             }
         }
 
@@ -59,6 +50,20 @@ namespace Core.Dto
         {
             var gemCount = Gems.SingleOrDefault(x => x.Gem == gem)?.Count ?? 0;
             writer.WriteAttributeString(gem.ToString(), gemCount.ToString());
+        }
+
+        private void ReadGemCount(XmlReader reader, Gem gem)
+        {
+            reader.MoveToContent();
+            var gemCountStr = reader.GetAttribute(gem.ToString());
+            if (gemCountStr != null)
+            {
+                var gemCount = int.Parse(gemCountStr);
+                if (gemCount > 0)
+                {
+                    Gems.Add(new GemCountDto(gem, gemCount));
+                }
+            }
         }
     }
 }

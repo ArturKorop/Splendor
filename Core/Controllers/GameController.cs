@@ -15,11 +15,11 @@ namespace Core.Controllers
         {
             while (!_gameData.IsGameFinished)
             {
-                var player = _gameData.PlayersRoundManager.GetNext();
-                var playerStatus = _gameData.GameRoundManager.GetPlayerRoundStatus(player.PlayerData.Id);
+                var player = _gameData.PlayersCircularManager.GetNext();
+                var playerStatus = player.RoundStatus;
                 playerStatus.Clear();
 
-                var processor = new PlayerActionProcessorManager(_gameData, player.PlayerData);
+                var processor = new PlayerActionProcessorManager(_gameData, player.PlayerData, playerStatus);
 
                 while (!playerStatus.IsMainActionDone)
                 {

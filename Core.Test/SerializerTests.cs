@@ -4,7 +4,7 @@ using Core.Common;
 using Core.Controllers;
 using Core.Dto;
 using Core.Entities;
-using Core.Player;
+using Core.Players;
 using NUnit.Framework;
 
 namespace Core.Test

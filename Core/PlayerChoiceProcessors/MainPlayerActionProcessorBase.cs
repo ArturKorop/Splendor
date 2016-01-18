@@ -1,24 +1,21 @@
-using Core.Controllers;
 using Core.Entities;
 
 namespace Core.PlayerChoiceProcessors
 {
     public abstract class MainPlayerActionProcessorBase<T> : PlayerActionProcessorBase<T>
     {
-        protected MainPlayerActionProcessorBase(GameData gameData, PlayerData playerData) : base(gameData, playerData)
+        protected MainPlayerActionProcessorBase(GameData gameData, PlayerData playerData, PlayerRoundStatus playerRoundStatus) : base(gameData, playerData, playerRoundStatus)
         {
         }
 
         protected override bool CanDoPlayerAction(T parameters)
         {
-            var playerStatus = GameData.GameRoundManager.GetPlayerRoundStatus(PlayerData.Id);
-
-            return !playerStatus.IsActionFinished && CanDoMainPlayerAction(parameters);
+            return !PlayerRoundStatus.IsActionFinished && CanDoMainPlayerAction(parameters);
         }
 
         protected override void UpdatePlayerStatus()
         {
-            GameData.GameRoundManager.PlayerDoneMainAction(PlayerData.Id);
+            PlayerRoundStatus.IsMainActionDone = true;
         }
 
         protected abstract bool CanDoMainPlayerAction(T parameters);

@@ -1,6 +1,6 @@
-namespace Core.Controllers
+namespace Core.Entities
 {
-    public enum MainAction
+    public enum MainTurnAction
     {
         Take3DifferentGems,
         Take2TheSameGems,

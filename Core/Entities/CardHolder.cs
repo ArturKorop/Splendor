@@ -4,23 +4,23 @@ namespace Core.Entities
 {
     public class CardHolder
     {
-        public CardRepository ActiveCards { get; } 
+        public ActiveCardRepository ActiveCards { get; } 
 
-        public CardRepository InactiveCards { get; } 
+        public InactiveCardRepository InactiveCards { get; } 
        
         public CardHolder(CardHolderDto dto)
         {
-            ActiveCards = new CardRepository(dto.ActiveCards);
-            InactiveCards = new CardRepository(dto.InactiveCards);
+            ActiveCards = new ActiveCardRepository(dto.ActiveCards);
+            InactiveCards = new InactiveCardRepository(dto.InactiveCards);
         }
 
         public CardHolder()
         {
-            ActiveCards = new CardRepository();
-            InactiveCards = new CardRepository();
+            ActiveCards = new ActiveCardRepository();
+            InactiveCards = new InactiveCardRepository();
         }
 
-        public CardHolder(CardRepository activeCards, CardRepository inactiveCards)
+        public CardHolder(ActiveCardRepository activeCards, InactiveCardRepository inactiveCards)
         {
             ActiveCards = activeCards;
             InactiveCards = inactiveCards;

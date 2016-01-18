@@ -28,13 +28,13 @@ namespace Core.Entities
 
         public int Id { get; set; }
 
-        public GemHolder GemHolder { get; private set; }
+        public GemHolder GemHolder { get; }
 
-        public List<Card> BoughtCards { get; private set; } 
+        public List<Card> BoughtCards { get; } 
 
-        public List<Card> BookedCards { get; private set; }
+        public List<Card> BookedCards { get; }
 
-        public List<Customer> Customers { get; private set; } 
+        public List<Customer> Customers { get; } 
 
         public int Vp
         {
@@ -43,7 +43,21 @@ namespace Core.Entities
 
         public bool CanTakeCustomer(GameData gameData)
         {
-            return gameData.Customers.Any(x => GemHolder.CanTakeCustomer(x));
+            return gameData.Customers.Any(IsHaveEnoughCardsForCustomer);
+        }
+
+        private bool IsHaveEnoughCardsForCustomer(Customer customer)
+        {
+            foreach (var gem in customer.Price.Gems)
+            {
+                var playerGems = BoughtCards.Count(x => x.GemProduct == gem.Key);
+                if(playerGems < gem.Value)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

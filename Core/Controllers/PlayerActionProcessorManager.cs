@@ -11,27 +11,30 @@ namespace Core.Controllers
 
         private readonly PlayerData _playerData;
 
-        public PlayerActionProcessorManager(GameData gameData, PlayerData playerData)
+        private readonly PlayerRoundStatus _playerRoundStatus;
+
+        public PlayerActionProcessorManager(GameData gameData, PlayerData playerData, PlayerRoundStatus playerRoundStatus)
         {
             _gameData = gameData;
             _playerData = playerData;
+            _playerRoundStatus = playerRoundStatus;
         }
 
         public void ProcessMainAction(PlayerMainAction playerMainAction)
         {
-            switch (playerMainAction.MainAction)
+            switch (playerMainAction.MainTurnAction)
             {
-                case MainAction.Take3DifferentGems:
-                    new Take3DifferentGemsProcessor(_gameData, _playerData).Process(playerMainAction.Parameters as Take3DifferentGemsParameters);
+                case MainTurnAction.Take3DifferentGems:
+                    new Take3DifferentGemsProcessor(_gameData, _playerData, _playerRoundStatus).Process(playerMainAction.Parameters as Take3DifferentGemsParameters);
                     break;
-                case MainAction.BuyCard:
-                    new BuyCardProcessor(_gameData, _playerData).Process(playerMainAction.Parameters as BuyCardParameters);
+                case MainTurnAction.BuyCard:
+                    new BuyCardProcessor(_gameData, _playerData, _playerRoundStatus).Process(playerMainAction.Parameters as BuyCardParameters);
                     break;
-                case MainAction.Take2TheSameGems:
-                    new Take2TheSameGemsProcessor(_gameData, _playerData).Process(playerMainAction.Parameters as Take2TheSameGemsParameters);
+                case MainTurnAction.Take2TheSameGems:
+                    new Take2TheSameGemsProcessor(_gameData, _playerData, _playerRoundStatus).Process(playerMainAction.Parameters as Take2TheSameGemsParameters);
                     break;
-                case MainAction.BookCardAndTake1Gold:
-                    new BookCardAndTake1GoldProcessor(_gameData, _playerData).Process(playerMainAction.Parameters as BookCardAndTake1GoldParameters);
+                case MainTurnAction.BookCardAndTake1Gold:
+                    new BookCardAndTake1GoldProcessor(_gameData, _playerData, _playerRoundStatus).Process(playerMainAction.Parameters as BookCardAndTake1GoldParameters);
                     break;
                 default:
                     throw new InvalidOperationException();
@@ -40,7 +43,7 @@ namespace Core.Controllers
 
         public void ProcessTakeCustomerAction(Customer parameters)
         {
-            new TakeCustomerProcessor(_gameData, _playerData).Process(parameters);
+            new TakeCustomerProcessor(_gameData, _playerData, _playerRoundStatus).Process(parameters);
         }
     }
 }

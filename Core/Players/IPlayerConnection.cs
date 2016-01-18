@@ -2,7 +2,7 @@ using Core.Controllers;
 using Core.Dto;
 using Core.Entities;
 
-namespace Core.Player
+namespace Core.Players
 {
     public interface IPlayerConnection
     {

@@ -4,7 +4,7 @@ using Core.Dto;
 using Core.Entities;
 using Core.PlayerChoiceParameters;
 
-namespace Core.Player
+namespace Core.Players
 {
     public class DummyPlayerConnection : IPlayerConnection
     {
@@ -14,7 +14,7 @@ namespace Core.Player
         {
             return new PlayerMainAction
             {
-                MainAction = MainAction.Take3DifferentGems,
+                MainTurnAction = MainTurnAction.Take3DifferentGems,
                 Parameters = new Take3DifferentGemsParameters
                 {
                     Gems = new [] {Gem.Blue, Gem.Green, Gem.White}

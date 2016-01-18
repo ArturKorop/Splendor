@@ -7,7 +7,7 @@ namespace Core.PlayerChoiceProcessors
 {
     public class Take3DifferentGemsProcessor : MainPlayerActionProcessorBase<Take3DifferentGemsParameters>
     {
-        public Take3DifferentGemsProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
+        public Take3DifferentGemsProcessor(GameData gameData, PlayerData playerData, PlayerRoundStatus playerRoundStatus) : base(gameData, playerData, playerRoundStatus)
         {
         }
 

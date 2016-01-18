@@ -4,23 +4,23 @@ using Core.Dto;
 
 namespace Core.Entities
 {
-    public class CardRepository
+    public class ActiveCardRepository
     {
-        public CardRepository()
+        public ActiveCardRepository()
         {
             Cards1Level = new List<Card>();
             Cards2Level = new List<Card>();
             Cards3Level = new List<Card>();
         }
 
-        public CardRepository(CardRepositoryDto dto)
+        public ActiveCardRepository(CardRepositoryDto dto)
         {
             Cards1Level = dto.Cards1Level.Select(x => new Card(x)).ToList();
             Cards2Level = dto.Cards2Level.Select(x => new Card(x)).ToList();
             Cards3Level = dto.Cards3Level.Select(x => new Card(x)).ToList();
         }
 
-        public CardRepository(List<Card> cards1Level, List<Card> cards2Level, List<Card> cards3Level)
+        public ActiveCardRepository(List<Card> cards1Level, List<Card> cards2Level, List<Card> cards3Level)
         {
             Cards1Level = cards1Level;
             Cards2Level = cards2Level;

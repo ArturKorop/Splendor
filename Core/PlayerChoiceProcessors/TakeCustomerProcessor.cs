@@ -1,13 +1,11 @@
 using System;
-using Core.Controllers;
 using Core.Entities;
-using Core.PlayerChoiceParameters;
 
 namespace Core.PlayerChoiceProcessors
 {
     public class TakeCustomerProcessor : PlayerActionProcessorBase<Customer>
     {
-        public TakeCustomerProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
+        public TakeCustomerProcessor(GameData gameData, PlayerData playerData, PlayerRoundStatus playerRoundStatus) : base(gameData, playerData, playerRoundStatus)
         {
         }
 
@@ -23,7 +21,7 @@ namespace Core.PlayerChoiceProcessors
 
         protected override void UpdatePlayerStatus()
         {
-            GameData.GameRoundManager.PlayerDoneCustomerTakenAction(PlayerData.Id);
+            PlayerRoundStatus.IsCustomerTaken = true;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Core.PlayerChoiceProcessors
 {
     public class Take2TheSameGemsProcessor : MainPlayerActionProcessorBase<Take2TheSameGemsParameters>
     {
-        public Take2TheSameGemsProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
+        public Take2TheSameGemsProcessor(GameData gameData, PlayerData playerData, PlayerRoundStatus playerRoundStatus) : base(gameData, playerData, playerRoundStatus)
         {
         }
 

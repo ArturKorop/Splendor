@@ -7,7 +7,7 @@ namespace Core.PlayerChoiceProcessors
 {
     public class BuyCardProcessor : MainPlayerActionProcessorBase<BuyCardParameters>
     {
-        public BuyCardProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
+        public BuyCardProcessor(GameData gameData, PlayerData playerData, PlayerRoundStatus playerRoundStatus) : base(gameData, playerData, playerRoundStatus)
         {
         }
 

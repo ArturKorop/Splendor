@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
-namespace Core.Controllers
+namespace Core.Common
 {
-    public class RoundManager<T>
+    public class CircularManager<T>
     {
         private readonly List<T> _source;
 
         private readonly Queue<T> _queue;
 
-        public RoundManager(List<T> source)
+        public CircularManager(List<T> source)
         {
             _source = source;
             _queue = new Queue<T>(_source);

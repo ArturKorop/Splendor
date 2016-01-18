@@ -15,7 +15,7 @@ namespace Core.Entities
                 Customers = game.Customers.Select(x => x.GetCustomerDto()).ToList(),
                 GemHolder = game.GemHolder.GetGemRepositoryDto(),
                 CardHolder = game.CardHolder.GetCardHolderDto(),
-                GameRoundManager = game.GameRoundManager.GetGameRoundManagerDto()
+                //GameRoundManager = game.GameRoundManager.GetGameRoundManagerDto()
             };
 
             return gameDto;
@@ -54,8 +54,7 @@ namespace Core.Entities
         {
             return new CardHolderDto
             {
-                ActiveCards = cardHolder.ActiveCards.GetCardRepositoryDto(),
-                InactiveCards = cardHolder.InactiveCards.GetCardRepositoryDto()
+                ActiveCards = cardHolder.ActiveCards.GetActiveCardRepositoryDto(),
             };
         }
 
@@ -79,7 +78,7 @@ namespace Core.Entities
             };
         }
 
-        public static CardRepositoryDto GetCardRepositoryDto(this CardRepository cardRepository)
+        public static CardRepositoryDto GetActiveCardRepositoryDto(this ActiveCardRepository cardRepository)
         {
             return new CardRepositoryDto
             {
@@ -89,21 +88,21 @@ namespace Core.Entities
             };
         }
 
-        public static GameRoundManagerDto GetGameRoundManagerDto(this GameRoundManager gameRoundManager)
-        {
-            return new GameRoundManagerDto
-            {
-                PlayerRoundStatuses = gameRoundManager.CurrentStatus.Select(x=> x.GetPlayerRoundStatusDto()).ToList()
-            };
-        }
+        //public static GameRoundManagerDto GetGameRoundManagerDto(this GameRoundManager gameRoundManager)
+        //{
+        //    return new GameRoundManagerDto
+        //    {
+        //        PlayerRoundStatuses = gameRoundManager.CurrentStatus.Select(x=> x.GetPlayerRoundStatusDto()).ToList()
+        //    };
+        //}
 
-        public static PlayerRoundStatusDto GetPlayerRoundStatusDto(this KeyValuePair<int, PlayerRoundStatus> source)
-        {
-            return new PlayerRoundStatusDto
-            {
-                Id = source.Key,
-                Status = source.Value
-            };
-        }
+        //public static PlayerRoundStatusDto GetPlayerRoundStatusDto(this KeyValuePair<int, PlayerRoundStatus> source)
+        //{
+        //    return new PlayerRoundStatusDto
+        //    {
+        //        Id = source.Key,
+        //        Status = source.Value
+        //    };
+        //}
     }
 }

@@ -1,8 +1,8 @@
-﻿namespace Core.Controllers
+﻿namespace Core.Entities
 {
     public class PlayerMainAction
     {
-        public MainAction MainAction { get; set; }
+        public MainTurnAction MainTurnAction { get; set; }
 
         public object Parameters { get; set; }
     }

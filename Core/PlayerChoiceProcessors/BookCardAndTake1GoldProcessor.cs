@@ -7,7 +7,7 @@ namespace Core.PlayerChoiceProcessors
 {
     public class BookCardAndTake1GoldProcessor : MainPlayerActionProcessorBase<BookCardAndTake1GoldParameters>
     {
-        public BookCardAndTake1GoldProcessor(GameData gameData, PlayerData playerData) : base(gameData, playerData)
+        public BookCardAndTake1GoldProcessor(GameData gameData, PlayerData playerData, PlayerRoundStatus playerRoundStatus) : base(gameData, playerData, playerRoundStatus)
         {
         }
 

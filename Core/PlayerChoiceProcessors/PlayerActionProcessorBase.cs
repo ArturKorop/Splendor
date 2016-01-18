@@ -1,4 +1,3 @@
-using Core.Controllers;
 using Core.Entities;
 using Core.Interfaces;
 
@@ -10,10 +9,13 @@ namespace Core.PlayerChoiceProcessors
 
         protected PlayerData PlayerData;
 
-        protected PlayerActionProcessorBase(GameData gameData, PlayerData playerData)
+        protected PlayerRoundStatus PlayerRoundStatus;
+
+        protected PlayerActionProcessorBase(GameData gameData, PlayerData playerData, PlayerRoundStatus playerRoundStatus)
         {
             GameData = gameData;
             PlayerData = playerData;
+            PlayerRoundStatus = playerRoundStatus;
         }
 
         public virtual void Process(T parameters)

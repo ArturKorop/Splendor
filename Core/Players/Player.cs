@@ -1,9 +1,11 @@
 using Core.Entities;
 
-namespace Core.Player
+namespace Core.Players
 {
     public class Player
     {
+        public PlayerRoundStatus RoundStatus { get; private set; }
+
         public PlayerData PlayerData { get; private set; }
 
         public IPlayerConnection Connection { get; private set; }
@@ -12,6 +14,7 @@ namespace Core.Player
         {
             PlayerData = data;
             Connection = connection;
+            RoundStatus = new PlayerRoundStatus();
         }
     }
 }
