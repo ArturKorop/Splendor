@@ -1,7 +1,7 @@
 using Core.Entities;
 using Core.Interfaces;
 
-namespace Core.PlayerChoiceProcessors
+namespace Core.Players.PlayerChoiceProcessors
 {
     public abstract class PlayerActionProcessorBase<T> : IPlayerActionProcessor<T>
     {

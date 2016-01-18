@@ -1,9 +1,8 @@
 using System;
-using Core.Controllers;
 using Core.Entities;
-using Core.PlayerChoiceParameters;
+using Core.Players.PlayerChoiceParameters;
 
-namespace Core.PlayerChoiceProcessors
+namespace Core.Players.PlayerChoiceProcessors
 {
     public class BuyCardProcessor : MainPlayerActionProcessorBase<BuyCardParameters>
     {

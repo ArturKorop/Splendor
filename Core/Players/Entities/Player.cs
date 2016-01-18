@@ -1,6 +1,7 @@
 using Core.Entities;
+using Core.Interfaces;
 
-namespace Core.Players
+namespace Core.Players.Entities
 {
     public class Player
     {

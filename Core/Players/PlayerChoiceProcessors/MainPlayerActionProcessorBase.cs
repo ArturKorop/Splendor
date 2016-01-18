@@ -1,6 +1,6 @@
 using Core.Entities;
 
-namespace Core.PlayerChoiceProcessors
+namespace Core.Players.PlayerChoiceProcessors
 {
     public abstract class MainPlayerActionProcessorBase<T> : PlayerActionProcessorBase<T>
     {

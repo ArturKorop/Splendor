@@ -1,6 +1,6 @@
 using Core.Common;
 
-namespace Core.PlayerChoiceParameters
+namespace Core.Players.PlayerChoiceParameters
 {
     public class Take2TheSameGemsParameters
     {

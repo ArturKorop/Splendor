@@ -11,7 +11,5 @@ namespace Core.Dto
         public GemHolderDto GemHolder { get; set; }
 
         public CardHolderDto CardHolder { get; set; }
-
-        public GameRoundManagerDto GameRoundManager { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core.Dto;
@@ -30,5 +31,7 @@ namespace Core.Entities
         public List<Card> Cards1Level { get; }
         public List<Card> Cards2Level { get; }
         public List<Card> Cards3Level { get; }
+
+        public IEnumerable<Card> AllCards => Cards1Level.Union(Cards2Level).Union(Cards3Level);
     }
 }

@@ -1,9 +1,8 @@
 using System.Linq;
-using Core.Controllers;
 using Core.Entities;
-using Core.PlayerChoiceParameters;
+using Core.Players.PlayerChoiceParameters;
 
-namespace Core.PlayerChoiceProcessors
+namespace Core.Players.PlayerChoiceProcessors
 {
     public class Take3DifferentGemsProcessor : MainPlayerActionProcessorBase<Take3DifferentGemsParameters>
     {

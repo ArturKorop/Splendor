@@ -1,10 +1,10 @@
 using Core.Common;
-using Core.Controllers;
 using Core.Dto;
 using Core.Entities;
-using Core.PlayerChoiceParameters;
+using Core.Interfaces;
+using Core.Players.PlayerChoiceParameters;
 
-namespace Core.Players
+namespace Core.Players.Entities
 {
     public class DummyPlayerConnection : IPlayerConnection
     {

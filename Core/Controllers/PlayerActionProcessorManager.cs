@@ -1,7 +1,7 @@
 using System;
 using Core.Entities;
-using Core.PlayerChoiceParameters;
-using Core.PlayerChoiceProcessors;
+using Core.Players.PlayerChoiceParameters;
+using Core.Players.PlayerChoiceProcessors;
 
 namespace Core.Controllers
 {

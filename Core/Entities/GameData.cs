@@ -3,7 +3,9 @@ using System.Linq;
 using Core.Common;
 using Core.Controllers;
 using Core.Dto;
+using Core.Interfaces;
 using Core.Players;
+using Core.Players.Entities;
 
 namespace Core.Entities
 {

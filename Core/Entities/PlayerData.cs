@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Core.Controllers;
 using Core.Dto;
-using Core.Extensions;
 
 namespace Core.Entities
 {

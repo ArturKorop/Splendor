@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.Common;
-using Core.Controllers;
 using Core.Dto;
 using Core.Entities;
+using Core.Interfaces;
 using Core.Players;
+using Core.Players.Entities;
 using NUnit.Framework;
 
 namespace Core.Test

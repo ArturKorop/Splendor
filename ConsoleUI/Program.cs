@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Core.Common;
 using Core.Controllers;
 using Core.Entities;
-using Core.Players;
+using Core.Interfaces;
+using Core.Players.Entities;
 
 namespace ConsoleUI
 {

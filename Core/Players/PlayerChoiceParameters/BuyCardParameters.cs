@@ -1,6 +1,6 @@
 using Core.Entities;
 
-namespace Core.PlayerChoiceParameters
+namespace Core.Players.PlayerChoiceParameters
 {
     public class BuyCardParameters
     {

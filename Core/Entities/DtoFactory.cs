@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Core.Controllers;
+﻿using System.Linq;
 using Core.Dto;
 
 namespace Core.Entities

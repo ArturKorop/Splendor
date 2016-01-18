@@ -54,7 +54,6 @@
     <Compile Include="Controllers\PlayersCircularManager.cs" />
     <Compile Include="Entities\MainTurnAction.cs" />
     <Compile Include="Common\CircularManager.cs" />
-    <Compile Include="Dto\GameRoundManagerDto.cs" />
     <Compile Include="Dto\PlayerRoundStatusDto.cs" />
     <Compile Include="Entities\Card.cs" />
     <Compile Include="Entities\CardHolder.cs" />
@@ -62,11 +61,11 @@
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\DtoFactory.cs" />
     <Compile Include="Entities\GameData.cs" />
-    <Compile Include="PlayerChoiceProcessors\MainPlayerActionProcessorBase.cs" />
-    <Compile Include="Players\DummyPlayerConnection.cs" />
+    <Compile Include="Players\PlayerChoiceProcessors\MainPlayerActionProcessorBase.cs" />
+    <Compile Include="Players\Entities\DummyPlayerConnection.cs" />
     <Compile Include="Entities\GemHolder.cs" />
-    <Compile Include="Players\IPlayerConnection.cs" />
-    <Compile Include="Players\Player.cs" />
+    <Compile Include="Interfaces\IPlayerConnection.cs" />
+    <Compile Include="Players\Entities\Player.cs" />
     <Compile Include="Entities\Price.cs" />
     <Compile Include="Dto\CardDto.cs" />
     <Compile Include="Dto\CardHolderDto.cs" />
@@ -79,20 +78,20 @@
     <Compile Include="Dto\GemHolderDto.cs" />
     <Compile Include="Entities\PlayerData.cs" />
     <Compile Include="Dto\PriceDto.cs" />
-    <Compile Include="Players\RealPlayerConnection.cs" />
+    <Compile Include="Players\Entities\RealPlayerConnection.cs" />
     <Compile Include="Extensions\PriceExtensions.cs" />
     <Compile Include="Interfaces\IPlayerActionProcessor.cs" />
-    <Compile Include="PlayerChoiceParameters\BookCardAndTake1GoldParameters.cs" />
-    <Compile Include="PlayerChoiceParameters\BuyCardParameters.cs" />
-    <Compile Include="PlayerChoiceParameters\Take2TheSameGemsParameters.cs" />
-    <Compile Include="PlayerChoiceParameters\Take3DifferentGemsParameters.cs" />
-    <Compile Include="PlayerChoiceParameters\TakeCustomerParameters.cs" />
-    <Compile Include="PlayerChoiceProcessors\BookCardAndTake1GoldProcessor.cs" />
-    <Compile Include="PlayerChoiceProcessors\BuyCardProcessor.cs" />
-    <Compile Include="PlayerChoiceProcessors\TakeCustomerProcessor.cs" />
-    <Compile Include="PlayerChoiceProcessors\PlayerActionProcessorBase.cs" />
-    <Compile Include="PlayerChoiceProcessors\Take2TheSameGemsProcessor.cs" />
-    <Compile Include="PlayerChoiceProcessors\Take3DifferentGemsProcessor.cs" />
+    <Compile Include="Players\PlayerChoiceParameters\BookCardAndTake1GoldParameters.cs" />
+    <Compile Include="Players\PlayerChoiceParameters\BuyCardParameters.cs" />
+    <Compile Include="Players\PlayerChoiceParameters\Take2TheSameGemsParameters.cs" />
+    <Compile Include="Players\PlayerChoiceParameters\Take3DifferentGemsParameters.cs" />
+    <Compile Include="Players\PlayerChoiceParameters\TakeCustomerParameters.cs" />
+    <Compile Include="Players\PlayerChoiceProcessors\BookCardAndTake1GoldProcessor.cs" />
+    <Compile Include="Players\PlayerChoiceProcessors\BuyCardProcessor.cs" />
+    <Compile Include="Players\PlayerChoiceProcessors\TakeCustomerProcessor.cs" />
+    <Compile Include="Players\PlayerChoiceProcessors\PlayerActionProcessorBase.cs" />
+    <Compile Include="Players\PlayerChoiceProcessors\Take2TheSameGemsProcessor.cs" />
+    <Compile Include="Players\PlayerChoiceProcessors\Take3DifferentGemsProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

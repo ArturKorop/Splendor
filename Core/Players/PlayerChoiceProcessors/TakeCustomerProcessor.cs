@@ -1,7 +1,7 @@
 using System;
 using Core.Entities;
 
-namespace Core.PlayerChoiceProcessors
+namespace Core.Players.PlayerChoiceProcessors
 {
     public class TakeCustomerProcessor : PlayerActionProcessorBase<Customer>
     {
